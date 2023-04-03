@@ -6,7 +6,7 @@ pipeline_manual_version是一个手动抄袭nextflow又学艺不精（暂时不�
 
 # 组成
 - nextflow_manual_version由两部分组成：main以及一系列分析function、parallel
-	- main：使用各个流程函数将组学所需要的流程串联起来（自主拼接）
+	- main：使用各个流程函数将组学所需要的流程串联起来（自主拼接，此为例子）
 	- function：将各个软件除了默认参数以外的必须输入以及输出作为函数的输入输出用于作为串联所需子程序
 	- parallel：用于并行提交任务
 
