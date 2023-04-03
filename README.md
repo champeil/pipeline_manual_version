@@ -1,0 +1,2 @@
+# pipeline_manual_version
+pipeline_manual_version是一个手动抄袭nextflow又学艺不精（暂时不想学习groovy以及nextflow目前仍旧一知半解）的由一个卑微技术员开发的函数集成式多流程分析
