@@ -2,7 +2,7 @@
 # author: laojp
 # time: 2023.04.14
 # position: SYSUCC bioinformatic platform
-# usage: oncoplot_drawing(maf=[maf_dataframe])
+# usage: oncoplot_drawing(onco=[maf_dataframe])
 # unfinished
 
 library(tidyverse)
