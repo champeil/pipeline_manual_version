@@ -1,19 +1,15 @@
 #!/bin/bash
 # this script is for parallel the sample
 # author: laojp
-# position: SYSUCC bioinformatics platform
-# time: 2023.05.06
+# time: 2023.05.08
+# position: SYSUCC bioinformatic platform
 # version: 1.0
-# usage:
-#       (script) &
-#       PID=$!
-#       PushQue $!
-#       while [[ $Nrun -ge $Nproc ]]; do
-#               ChkQue
-#               sleep 10s
-#       done
-#       wait_Que
-# new: found wait cannot conduct the function likes wait_que, so I write a function 
+# usage: 
+	#  while read id; do 
+	#   script ${id} &
+	#   wait_Que $!
+	#  done < <(ls ${file})
+	#  [wait | finish_Que]
 
 function PushQue {    # 将PID压入队
         Que="$Que $1"
@@ -38,8 +34,19 @@ function ChkQue {     # 检查队列
         done
 }
 function wait_Que {
-        while [[ -n $Que ]]; do
+        PID=$1
+        PushQue ${PID}
+        while [[ $Nrun -ge $Nproc ]]; do
                 sleep 10s
                 ChkQue
         done
 }
+function finish_Que {
+        while [[ $Nrun -gt 0 ]]; do
+                echo "------$Que still running"
+                sleep 10s
+                ChkQue
+        done
+}
+# 注意父进程中需要使用进程替换重定向文件输入，而不能使用管道符号，这样que与Nrun才不会在循环结束以后被清除
+
